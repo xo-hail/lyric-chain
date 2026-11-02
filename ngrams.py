@@ -1,6 +1,6 @@
 import data
 
-""" Split up the data into usable dictionaries. The brain of the program, if you will. """
+""" Split up the data into usable dictionaries. """
 
 raw_Data = data.data
 
@@ -43,6 +43,3 @@ def data_prep(raw_data):
 
     return words_list
 
-
-dictionary = dictionary_assembly(raw_Data)
-print(dictionary)
