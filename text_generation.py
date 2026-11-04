@@ -26,28 +26,19 @@ def generate_text(word_bank, max_words):
 
     return generated_Sentence
 
+
 """ Clean up lists before arranging them. """
 
 # Sentence minimum. Working on it.. 
 
 def assembly(generated_text):
-
-    # For capitalization. First version, will rest and test tmr
-    first_word = generated_text[0]
-
-    for char in len(range(first_word)):
-        split_word, first_letter = first_word.split(char)
-        break
-
-    upped_first_letter = first_letter.upper()
-    upped_first_word = split_word.append(0, upped_first_letter)
-    generated_sentence = generated_text.append(0, upped_first_word)
-
     generated_sentence = " ".join(generated_text)
+    generated_sentence = generated_sentence.capitalize()
 
     # For sentence punctuation. WIP
 
     return generated_sentence
+
 
 """ Pick a random word from the bigram keys. """
 
@@ -61,3 +52,7 @@ def pick_random_word(bigrams):
     random_word = random.choice(words_list)
 
     return random_word
+
+raw_data = data.data
+bigrams = ngrams.dictionary_assembly(raw_data)
+print(generate_text(bigrams, 30))

@@ -42,4 +42,3 @@ def data_prep(raw_data):
             words_list.append(word)
 
     return words_list
-
