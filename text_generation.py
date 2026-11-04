@@ -52,7 +52,3 @@ def pick_random_word(bigrams):
     random_word = random.choice(words_list)
 
     return random_word
-
-raw_data = data.data
-bigrams = ngrams.dictionary_assembly(raw_data)
-print(generate_text(bigrams, 30))
