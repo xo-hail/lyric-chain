@@ -1,6 +1,4 @@
 import random
-import ngrams
-import data
 
 # *Create a function that handles generated text assembly so that everything is an actual sentence!
 
@@ -35,9 +33,10 @@ def assembly(generated_text):
     generated_sentence = " ".join(generated_text)
     generated_sentence = generated_sentence.capitalize()
 
-    # For sentence punctuation. WIP
+    # For sentence ending
+    final_sentence = generated_sentence + "."
 
-    return generated_sentence
+    return final_sentence
 
 
 """ Pick a random word from the bigram keys. """
