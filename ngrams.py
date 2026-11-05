@@ -11,17 +11,24 @@ def dictionary_assembly(raw_data):
     word_bank = {}
 
     for i in range(len(prepped_data)):
-        word = prepped_data[i].lower().strip(",")
+        word = prepped_data[i].lower().strip(",") # key
+        next_word = get_next_word(prepped_data, i) # value
+
+        # Bouncer condition
+        if next_word is None:
+            continue
+
+        if if_proper_noun(next_word, i) is False:
+            next_word = next_word.lower()
 
         if word not in word_bank:
             word_bank[word] = []
 
-    # Preserve capitalization per word for the values.
-        word_bank[word].append(get_next_word(prepped_data, i))
+        word_bank[word].append(next_word)
 
     return word_bank
 
-""" In progress. Have yet to understand this block of code. """
+""" Get the next word. """
 
 def get_next_word(words, index):
     if index + 1 >= len(words):
@@ -29,6 +36,18 @@ def get_next_word(words, index):
 
     return words [index + 1]
 
+""" Checks if the word is a proper noun. """
+
+def if_proper_noun(next_word, index):
+    if next_word is None:
+        return False
+    
+    letter = next_word[0]
+
+    if index != 0 and letter.isupper():
+        return True
+    else:
+        return False
 
 """ Prep incoming data for the bigger function. """
 

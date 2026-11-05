@@ -18,7 +18,7 @@ def generate_text(word_bank, max_words):
            generated_text.append(start_word)
            break
             
-       word_to_append = word_to_append.strip(",").lower()
+       word_to_append = word_to_append.strip(",")
        generated_text.append(word_to_append)
        start_word = word_to_append
 
