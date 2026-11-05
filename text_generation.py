@@ -14,15 +14,15 @@ def generate_text(word_bank, max_words):
             break
        
        word_to_append = random.choice(word_bank[start_word])
-       if word_to_append == None:
+       if word_to_append is None:
            generated_text.append(start_word)
-           continue
+           break
             
        word_to_append = word_to_append.strip(",").lower()
        generated_text.append(word_to_append)
        start_word = word_to_append
 
-       generated_Sentence = assembly(generated_text)
+    generated_Sentence = assembly(generated_text)
 
     return generated_Sentence
 

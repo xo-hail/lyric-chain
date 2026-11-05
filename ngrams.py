@@ -26,9 +26,6 @@ def dictionary_assembly(raw_data):
 def get_next_word(words, index):
     if index + 1 >= len(words):
         return None
-    
-    #if index + 1 >= len(words):
-         #return ""
 
     return words [index + 1]
 
