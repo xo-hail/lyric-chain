@@ -13,10 +13,12 @@ def generate_text(word_bank, max_words):
        if start_word not in word_bank:
             break
        
-        # Clean the word to append to smooth it out
        word_to_append = random.choice(word_bank[start_word])
+       if word_to_append == None:
+           generated_text.append(start_word)
+           continue
+            
        word_to_append = word_to_append.strip(",").lower()
-
        generated_text.append(word_to_append)
        start_word = word_to_append
 

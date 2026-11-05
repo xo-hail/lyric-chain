@@ -14,7 +14,7 @@ def dictionary_assembly(raw_data):
         word = prepped_data[i].lower().strip(",")
 
         if word not in word_bank:
-                word_bank[word] = []
+            word_bank[word] = []
 
     # Preserve capitalization per word for the values.
         word_bank[word].append(get_next_word(prepped_data, i))
@@ -25,7 +25,10 @@ def dictionary_assembly(raw_data):
 
 def get_next_word(words, index):
     if index + 1 >= len(words):
-         return ""
+        return None
+    
+    #if index + 1 >= len(words):
+         #return ""
 
     return words [index + 1]
 
