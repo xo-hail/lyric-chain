@@ -26,12 +26,13 @@ def generate_text(word_bank, max_words):
 
        if not word_to_append.isalpha():
            (set_aside_word := set_aside(word_to_append))
-           start_word = word_to_append
+           start_word = pick_random_word(word_bank)
            continue
        
        set_check = if_set_aside(set_aside_word)
        if set_check:
            generated_text.append(set_aside_word)
+           (set_aside_word := "")
            
        generated_text.append(word_to_append)
        start_word = word_to_append
