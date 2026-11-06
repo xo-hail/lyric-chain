@@ -8,17 +8,37 @@ def generate_text(word_bank, max_words):
     start_word = pick_random_word(word_bank)
     generated_text = [start_word]
 
+
+    print("Im here!")
     # Start a loop that runs up to the set maximum
     while len(generated_text) <= max_words:
        if start_word not in word_bank:
             break
-       
+
+       print("Im here!")
        word_to_append = random.choice(word_bank[start_word])
+       # Break the loop if the word to append (key) doesn't have a value
        if word_to_append is None:
            generated_text.append(start_word)
            break
-            
-       word_to_append = word_to_append.strip(",")
+
+       # If a word contains a punctuation mark, set it aside for the next loop.
+       # If there is a next word, put it before the current word.
+       
+       print("Im here!")
+       word_to_append = word_to_append
+       set_aside_word = ""
+
+       if not word_to_append.isalpha():
+           set_aside_word = word_to_append
+           continue
+       
+       print("Im here!")
+       set_check = if_set_aside(set_aside_word)
+       print("Im here!")
+       if set_check:
+           generated_text.append(set_aside_word)
+           
        generated_text.append(word_to_append)
        start_word = word_to_append
 
@@ -53,3 +73,8 @@ def pick_random_word(bigrams):
     random_word = random.choice(words_list)
 
     return random_word
+
+def if_set_aside(set_aside_word):
+    if not set_aside_word:
+        return False
+    return True
