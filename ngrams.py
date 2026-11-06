@@ -42,10 +42,20 @@ def if_proper_noun(next_word, index):
     if next_word is None:
         return False
 
-    # Check if the string index is even a letter. If not, check the next index.
-    letter = next_word[0]
-    if not letter.isalpha():
+    # Check if the string index is a letter. 
+    char = next_word[0]
+    if char.isalpha():
+        letter = char
+
+    # If not, return False immediately.
+    elif char.isnumeric():
+        return False
+    
+    # If within a punctuation, check if the next word is a letter or a numeral.
+    else:
         letter = next_word[1]
+        if letter.isnumeric():
+            return False
 
     if index != 0 and letter.isupper():
         return True
