@@ -41,8 +41,11 @@ def get_next_word(words, index):
 def if_proper_noun(next_word, index):
     if next_word is None:
         return False
-    
+
+    # Check if the string index is even a letter. If not, check the next index.
     letter = next_word[0]
+    if not letter.isalpha():
+        letter = next_word[1]
 
     if index != 0 and letter.isupper():
         return True
