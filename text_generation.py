@@ -52,7 +52,7 @@ def assembly(generated_text):
     first_word = first_word.capitalize()
 
     # Put it back and join. Voila :)
-    generated_text.insert(0, first_word)
+    generated_text[0] = first_word
     generated_sentence = " ".join(generated_text)
 
     # For sentence ending
@@ -73,6 +73,8 @@ def pick_random_word(bigrams):
     random_word = random.choice(words_list)
 
     return random_word
+
+"""" Worker functions. """
 
 def set_aside(word_to_append):
     set_aside_word = word_to_append
