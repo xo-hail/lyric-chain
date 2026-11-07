@@ -50,6 +50,11 @@ def if_proper_noun(word, index):
     if char.isalpha():
         letter = char
 
+        if index == 0 and letter.isupper():
+            return False
+        else:
+            return True
+
     # If not, return False immediately.
     elif char.isnumeric():
         return False
@@ -60,10 +65,6 @@ def if_proper_noun(word, index):
         if letter.isnumeric():
             return False
 
-    if index != 0 and letter.isupper():
-        return True
-    else:
-        return False
 
 """ Prep incoming data for the bigger function. """
 
