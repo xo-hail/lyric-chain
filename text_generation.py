@@ -47,8 +47,13 @@ def generate_text(word_bank, max_words):
 # Sentence minimum. Working on it.. 
 
 def assembly(generated_text):
+    # Capitalize the first word first, always
+    first_word = generated_text[0]
+    first_word = first_word.capitalize()
+
+    # Put it back and join. Voila :)
+    generated_text.insert(0, first_word)
     generated_sentence = " ".join(generated_text)
-    generated_sentence = generated_sentence.capitalize()
 
     # For sentence ending
     final_sentence = generated_sentence + "."
