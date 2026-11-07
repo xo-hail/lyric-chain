@@ -11,12 +11,15 @@ def dictionary_assembly(raw_data):
     word_bank = {}
 
     for i in range(len(prepped_data)):
-        word = prepped_data[i].lower().strip(",") # key
+        word = prepped_data[i].strip(",") # key
         next_word = get_next_word(prepped_data, i) # value
 
-        # Bouncer condition
+        # Bouncer conditions
         if next_word is None:
             continue
+
+        if if_proper_noun(word, i) is False:
+            word = word.lower()
 
         if if_proper_noun(next_word, i) is False:
             next_word = next_word.lower()
@@ -38,12 +41,12 @@ def get_next_word(words, index):
 
 """ Checks if the word is a proper noun. """
 
-def if_proper_noun(next_word, index):
-    if next_word is None:
+def if_proper_noun(word, index):
+    if word is None:
         return False
 
     # Check if the string index is a letter. 
-    char = next_word[0]
+    char = word[0]
     if char.isalpha():
         letter = char
 
@@ -53,7 +56,7 @@ def if_proper_noun(next_word, index):
     
     # If within a punctuation, check if the next word is a letter or a numeral.
     else:
-        letter = next_word[1]
+        letter = word[1]
         if letter.isnumeric():
             return False
 
